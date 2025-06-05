@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.containerLogin{
+    width: 411px;
+    height: 823px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoSlogan{ 
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.logoSlogan img{
+    width: 302px;
+    height: 94px;
+}
+
+.logoSlogan p{
+    width: 239px;
+    height: 30px;
+    font-size: 15px;
+    color: #9E9E9E;
+}
+.buttonsLogin{
+    width: 363PX;
+    height: 264px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.buttonsLogin button{
+    width: 363px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 16px;
+}
+
+.buttonsLogin button:hover{
+    background: #53A5CF;
+    color: #FFFFFF;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+.buttonsLogin button.google,button.facebook{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
