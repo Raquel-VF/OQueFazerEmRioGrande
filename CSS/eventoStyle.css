@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*container tela evento*/
+.containerEvento{
+    width: 411px;
+    height: 823px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.containerEvento img{
+    width: 100%;
+    height: 500px;
+    border-radius: 0 0 38px 38px;
+    margin-top: -88px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.infoEvento{
+    width: 363px;
+    height: 300px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.infoEvento h1{
+    font-size: 32px;
+    font-weight: 600;
+    color: #9E9E9E;
+}
+.infoEvento .mapa {
+    width: 150px;
+    height:100px;
+    border-radius: 10px;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+.infoEvento .detalhesEvento{
+    width: 170px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9E9E9E;
+    font-size: 13px;
+
+}
+.infoEvento .detalhesEvento p{
+    width: 170px;
+    height: 40px;
+    margin-left: 20px;
+}
+.infoEvento .descricaoEvento{
+    width: 363px;
+    height: 60px;
+}
+.infoEvento .descricaoEvento h4{
+    color: #9E9E9E;
+    font-size: 13px;
+}
+
+.infoEvento .descricaoEvento p{
+    color: #9E9E9E;
+    font-size: 10px;
+    
+}
+.botaoEvento{
+    width: 363px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.botaoEvento .btnAgendar{
+    width: 150px;
+    height: 40px;
+    background: #53A5CF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+.botaoEvento .btnCompartilhar{
+    width: 150px;
+    height: 40px;
+    background: #53A5CF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    justify-content: space-evenly
+}
