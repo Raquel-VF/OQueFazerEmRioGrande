@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*container tela home*/
+.containerLogin{
+    width: 411px;
+    height: 823px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*inicio header home*/
+.containerHeader{
+    width: 100%;
+    height: 85px;
+    background: #d9d9d950;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerHeader .headerLogo {
+    width: 411px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.containerHeader .headerLogo .imgLogo {
+    width: 155px;
+    height: 48px;
+    margin-left: 100px;
+}
+
+.containerHeader .headerLogo .imgAvatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;    
+}
+/*fim header home*/
+
+/*inicio container agenda*/
+.containerAgenda{
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    margin: auto;
+    background: #FFFFFF;
+    position: relative;
+}
+.containerAgenda h4{
+    width: 170px;
+    font-style: italic;
+    margin: 10px;
+
+}
+
+.cartaoMomento {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.cartaoMomento .marcaDagua{
+    z-index: 0;
+}
+
+.cartaoMomento .marcaDagua img{
+    width: 370px;
+    height: 645px;
+    margin: 0 24px;
+    opacity: 0.3;
+    position: absolute;
+}
+
+.caixaFotoTop{
+    width: 150px;
+    height: 190px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 30px;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    z-index: 1;
+    position: absolute;
+    
+}
+.caixaFotoTop img{
+    width: 115px;
+    height: 130px;
+    background-color: #D9D9D9;
+    object-fit: cover;
+}
+
+.caixaFotoTop .iconesAgenda{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    gap: 25px;
+    color: #53A5CF;
+}
+.caixaFotoTop .iconesAgenda i{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.containerAgenda .caixaEscrita{
+    width: 198px;
+    height: 102px;
+    background-color:  #fffde7;;
+    position: absolute;
+    top: 40px;
+    left: 190px;
+    margin-top: 40px;
+    margin-right: 30px;
+    padding: 20px;
+}
+.caixaEscrita p{
+    font-size: 10px;
+}
+
+/*caixa de foto esquerda com coração*/
+.caixaFotoLeft{
+    width: 124px;
+    height: 141px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    top:260px;
+    left: 40px;
+    position: absolute;
+    
+}
+.caixaFotoLeft img{
+    width: 96px;
+    height: 112px;
+    background-color: #D9D9D9;
+    object-fit: cover;
+}
+
+.caixaFotoLeft .iconesAgenda i{
+    position: absolute;
+    margin: 10px;
+    color: #53A5CF;
+    left: 95px;
+    top: 115px;
+    font-size: 40px;
+} /*fim cx foto esqueda*/
+
+/*cx foto direita*/
+.caixaFotoRight{
+    width: 125px;
+    height: 141px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    padding-bottom: 20px;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    top:200px;
+    left: 215px;
+    position: absolute;
+    rotate: 17deg;
+    
+}
+.caixaFotoRight img{
+    width: 98px;
+    height: 93px;
+    background-color: #D9D9D9;
+    object-fit: cover;
+}
+
+.caixaFotoRight .iconesAgenda i{
+    position: absolute;
+    margin: 10px;
+    color: #53A5CF;
+    right: 100px;
+    bottom: 100px;
+    font-size: 40px;
+    rotate: -17deg;
+}
+

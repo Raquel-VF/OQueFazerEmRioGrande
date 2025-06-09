@@ -103,3 +103,10 @@
     border: none;
     justify-content: space-evenly
 }
+.botaoEvento .btnAgendar:hover, .btnCompartilhar:hover {
+    background-color: #9E9E9E;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
