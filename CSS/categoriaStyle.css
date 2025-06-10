@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*container tela home*/
+.containerLogin{
+    max-width: 411px; 
+    width: 100%; 
+    height: 100vh;
+    background: #FFFFFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*inicio header home*/
+.containerHeader{
+    width: 100%;
+    height: 85px;
+    background: #d9d9d950;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerHeader .headerLogo {
+    width: 411px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.containerHeader .headerLogo .imgLogo {
+    width: 155px;
+    height: 48px;
+    margin-left: 100px;
+}
+
+.containerHeader .headerLogo .imgAvatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;    
+}
+/*fim header home*/
+
+/*Inicio navegationBar*/
+.navegationBar{
+    width: 411px;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.navegationBar ul{
+    display: flex;
+    gap: 6px;
+    list-style: none;
+}
+
+.navegationBar ul li a{
+    width: 96px;
+    height: 40px;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9E9E9E;
+    text-decoration: none;
+    font-size: 14px;
+}
+.navegationBar ul li a:hover{
+    background: #53A5CF;
+    color: #ffffff;
+}
+/*Fim navegationBar*/
+
+/*Inicio próximos eventos*/
+.nextEvents{
+    width: 411px;
+    height: 600px;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.nextEvents h3 {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #212529;
+    margin-bottom: 20px;
+}
+.nextEvents .nextEventsCards{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-content: space-around;
+    
+    
+}
+.nextEvents .nextEventCard{
+    width: 160px;
+    height: 150px;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    cursor: pointer;
+    
+    
+}
+.nextEvents .nextEventCard img{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    top: -30px;
+    position: relative;
+}
+.nextEvents .nextEventCard .eventDetails{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #E0E0E0;
+    border-radius: 10px;
+    
+}
+.nextEvents .nextEventCard .eventDetails p{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #212529;
+    text-align: center;
+    padding: 5px;
+    
+}
+.nextEventCard:hover,
+.nextEventCard:hover .eventDetails,
+.nextEventCard:hover .eventDetails p{
+    background: #53A5CF;
+    color: #ffffff;
+}
+/*Fim próximos eventos*/
+
+/*Inicio Botão de navegação fixo*/
+.bottonNav{
+    width: 100%;
+    height: 74px;
+    border: 1px solid #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: #d9d9d9;
+    box-shadow: 0px 0px 2px 2px rgb(0 0 0 / 25%);
+    z-index: 1000;
+}
+.bottonNav a{
+    width: 137px;
+    height: 74px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #9E9E9E;
+    font-size: 16px;
+}
+.bottonNav a:hover{
+    color: #53A5CF;
+}
+
+/*Fim Botão de navegação fixo*/
