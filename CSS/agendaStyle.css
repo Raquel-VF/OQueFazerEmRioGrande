@@ -167,6 +167,7 @@
     font-size: 40px;
     rotate: -15deg;
     z-index: 2;
+    text-shadow: #636060fc -3px -3px 5px;
 } /*fim cx foto esqueda*/
 
 /*cx foto direita*/
@@ -202,6 +203,7 @@
     bottom: 100px;
     font-size: 40px;
     rotate: -17deg;
+    text-shadow: #636060fc 5px -4px 5px;
 }
 
 /*postItMiddle*/
@@ -292,7 +294,7 @@
     height: 15px;
     background: #f0e68c;
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
 }
 .postItMiddle ::before{
     background: #e1bee7;
