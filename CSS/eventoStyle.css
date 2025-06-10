@@ -7,8 +7,9 @@
 
 /*container tela evento*/
 .containerEvento{
-    width: 411px;
-    height: 823px;
+    max-width: 411px; 
+    width: 100%; 
+    height: 100vh;
     background: #FFFFFF;
     border-radius: 20px;
     display: flex;
