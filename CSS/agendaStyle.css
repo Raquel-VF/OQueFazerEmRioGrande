@@ -116,10 +116,10 @@
     font-size: 20px;
     cursor: pointer;
 }
-
-.containerAgenda .caixaEscrita{
-    width: 198px;
-    height: 102px;
+ /*POST-IT TOP*/
+.containerAgenda .postItTop{
+    width: 150px;
+    height: 100px;
     background-color:  #fffde7;;
     position: absolute;
     top: 40px;
@@ -127,11 +127,13 @@
     margin-top: 40px;
     margin-right: 30px;
     padding: 20px;
-    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+     border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    transform: rotate(5deg);
 }
-.caixaEscrita p{
+.postItTop p{
     font-size: 10px;
-}
+}/*fim post-it top*/
 
 /*caixa de foto esquerda com coração*/
 .caixaFotoLeft{
@@ -145,9 +147,9 @@
     margin: 30px;
     box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
     top:260px;
-    left: 40px;
+    left: 25px;
     position: absolute;
-    
+    z-index: 1;
 }
 .caixaFotoLeft img{
     width: 96px;
@@ -160,9 +162,11 @@
     position: absolute;
     margin: 10px;
     color: #53A5CF;
-    left: 95px;
-    top: 115px;
+    left: -25px;
+    top: -30px;
     font-size: 40px;
+    rotate: -15deg;
+    z-index: 2;
 } /*fim cx foto esqueda*/
 
 /*cx foto direita*/
@@ -181,7 +185,7 @@
     left: 215px;
     position: absolute;
     rotate: 17deg;
-    
+    z-index: 1;
 }
 .caixaFotoRight img{
     width: 98px;
@@ -200,3 +204,99 @@
     rotate: -17deg;
 }
 
+/*postItMiddle*/
+.containerAgenda .postItMiddle{
+    width: 150px;
+    height: 100px;
+    background-color:  #f3e5f5;;
+    position: absolute;
+    top: 350px;
+    left: 210px;
+    margin-top: 40px;
+    margin-right: 30px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    transform: rotate(2deg);
+    z-index: 0;
+}
+.postItMiddle p{
+    font-size: 10px;
+}
+
+/*cx foto de baixo*/
+.caixaFotoBottom{
+    width: 125px;
+    height: 141px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    padding-bottom: 20px;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    top:480px;
+    left: 185px;
+    position: absolute;
+    rotate: -15deg;
+    z-index: 1;
+}
+.caixaFotoBottom img{
+    width: 98px;
+    height: 93px;
+    background-color: #D9D9D9;
+    object-fit: cover;
+}
+
+.caixaFotoBottom .iconesAgenda i{
+    position: absolute;
+    margin: 10px;
+    color: #53A5CF;
+    right: 100px;
+    bottom: 100px;
+    font-size: 40px;
+    rotate: -17deg;
+}
+
+/*postItBottom*/
+.containerAgenda .postItBottom{
+    width: 150px;
+    height: 100px;
+    background-color:  #fff9c4;;
+    position: absolute;
+    top: 500px;
+    left: 30px;
+    padding: 15px;
+    margin-top: 40px;
+    margin-right: 30px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    transform: rotate(-2deg);
+    z-index: 0;
+}
+.postItBottom p{
+    font-size: 14px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+}
+
+.postItTop ::before,
+.postItMiddle ::before,
+.postItBottom ::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 15px;
+    background: #f0e68c;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.postItMiddle ::before{
+    background: #e1bee7;
+}
+.postItBottom ::before{
+    background: #fff176;
+}
