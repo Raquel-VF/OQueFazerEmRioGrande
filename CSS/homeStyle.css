@@ -5,7 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 /*container tela home*/
-.containerLogin{
+.containerHome{
     max-width: 411px; 
     width: 100%; 
     height: 100vh;
@@ -22,10 +22,33 @@
     width: 100%;
     height: 85px;
     background: #d9d9d950;
-    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 25%);
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 0.05);
+    border-bottom: 1px solid #E0E0E0;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.containerHeader a{
+    text-decoration: none;
+    color: #9E9E9E;
+}
+.containerHeader .arrowLeft{
+    width: 48px;
+    height: 48px;
+    background: #53A5CF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.containerHeader .arrowLeft i{
+    color: #FFFFFF;
+    font-size: 24px;
 }
 
 .containerHeader .headerLogo {
@@ -213,7 +236,12 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    
+    text-decoration: none;
+    color: #9E9E9E;
+}
+.nextEventsCards a{
+    text-decoration: none;
+    color: #9E9E9E;
 }
 .nextEvents .nextEventCard img{
     width: 100px;
@@ -260,8 +288,10 @@
     position: fixed;
     bottom: 0px;
     left: 0px;
-    background: #d9d9d9;
-    box-shadow: 0px 0px 2px 2px rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    padding: 0 20px;
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 0.05);
+    border-bottom: 1px solid #E0E0E0;
     z-index: 1000;
 }
 .bottonNav a{
