@@ -206,6 +206,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;    
+    
 }
 .dateEvents h3 {
     font-size: 14px;
@@ -263,13 +264,17 @@
 .nextEvents .nextEventsCards{
     display: flex;
     gap: 10px;
-    overflow: auto;
     margin-top: 5px;
     padding: 10px;
     flex-direction: row;
     justify-content: flex-start;
-    
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
+
 .nextEvents .nextEventCard{
     display: flex;
     flex-direction: column;
