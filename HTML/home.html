@@ -21,7 +21,22 @@
          </a>
         <div class="headerLogo">
             <img class="imgLogo" src="../IMAGENS/logo.png" alt="logo">
-            <img class="imgAvatar" src="../IMAGENS/fotoPerfil.png" alt="avatar perfil">
+
+            <div class="perfil-container">
+
+                <img class="imgAvatar" id="avatar" src="../IMAGENS/fotoPerfil.png" alt="avatar perfil">
+
+                <div class="dropdown" id="menu-perfil">
+                    <a href="#">👤 Editar perfil</a>
+                    <a href="#">📸 Alterar foto</a>
+                    <a href="#">✉️ Alterar e-mail</a>
+                    <a href="#">🔐 Alterar senha</a>
+                    <a href="#">❓ Suporte</a>
+                    <a href="../HTML/admin.html" id="btn-admin" style="display: none;">🛠️ Área Admin</a>
+                    <a href="#" id="logout">🚪 Sair</a>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -269,7 +284,6 @@
             </a>
         </div>
     </div>
-
-    <script src="../JAVASCRIPT/home.js?v=1"></script>
+    <script type="module" src="../JAVASCRIPT/home.js"></script>
 </body>
 </html>
