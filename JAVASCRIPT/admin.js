@@ -5,6 +5,14 @@ import {
   collection,
   addDoc
 } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-storage.js";
+
+
 
 // Configuração do Firebase
 const firebaseConfig = {
@@ -19,6 +27,8 @@ const firebaseConfig = {
 // Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
+
 
 // Captura o formulário
 const form = document.getElementById("form-evento");
@@ -26,17 +36,30 @@ const form = document.getElementById("form-evento");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const novoEvento = {
-    titulo: form.titulo.value,
-    descricao: form.descricao.value,
-    categoria: form.categoria.value,
-    cidade: form.cidade.value,
-    data: form.data.value,
-    hora: form.hora.value,
-    imagem: form.imagem.value
-  };
+  const arquivoImagem = form.imagem.files[0];
+  if (!arquivoImagem) {
+    alert("Por favor, selecione uma imagem.");
+    return;
+  }
 
   try {
+    // Sobe a imagem pro Storage
+    const nomeArquivo = `eventos/${Date.now()}_${arquivoImagem.name}`;
+    const imagemRef = ref(storage, nomeArquivo);
+    await uploadBytes(imagemRef, arquivoImagem);
+    const urlImagem = await getDownloadURL(imagemRef);
+
+    // Monta o evento
+    const novoEvento = {
+      titulo: form.titulo.value,
+      descricao: form.descricao.value,
+      categoria: form.categoria.value.split(",").map(item => item.trim()),
+      cidade: form.cidade.value,
+      data: form.data.value,
+      hora: form.hora.value,
+      imagem: urlImagem
+    };
+
     await addDoc(collection(db, "eventos"), novoEvento);
     alert("Evento cadastrado com sucesso!");
     form.reset();

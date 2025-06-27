@@ -1,6 +1,15 @@
 // IMPORTA OS MÓDULOS DO FIREBASE (não pode faltar isso!)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
 // TUA CONFIG DO FIREBASE
 const firebaseConfig = {
@@ -9,10 +18,11 @@ const firebaseConfig = {
   projectId: "o-que-fazer-em-rio-grand-4ca52",
   storageBucket: "o-que-fazer-em-rio-grand-4ca52.appspot.com",
   messagingSenderId: "1038923994330",
-  appId: "1:1038923994330:web:ca4cce7c73223896ddc1e3"
+  appId: "1:1038923994330:web:ca4cce7c73223896ddc1e3",
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const auth = getAuth(app);
 
 // FUNÇÃO PARA CARREGAR O MENU DE PERFIL
@@ -40,4 +50,94 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "../index.html";
     });
   });
+});
+
+// IMPORTA OS MÓDULOS DA BARRA DE PESQUISA COM FIRESTORE
+const container = document.getElementById("resultadosBusca");
+container.style.display = "none";
+
+const inputBusca = document.getElementById("inputBusca");
+const botaoBusca = document.getElementById("botaoBusca");
+
+let eventos = [];
+
+// Carregar eventos do Firestore
+async function carregarEventos() {
+  const querySnapshot = await getDocs(collection(db, "eventos"));
+  eventos = querySnapshot.docs.map((doc) => doc.data());
+  container.innerHTML = "<p>Carregando eventos...</p>";
+}
+
+// Mostrar os eventos na tela usando modelo de card
+function exibirEventos(lista) {
+  const container = document.getElementById("resultadosBusca");
+  container.innerHTML = ""; // Limpa o container antes de exibir novos eventos
+
+  if (lista.length === 0) {
+    container.innerHTML = "<p>Nenhum evento encontrado.</p>";
+    container.style.display = "block";
+    return;
+  }
+
+  lista.forEach((evento) => {
+    const card = document.createElement("div");
+    card.classList.add("nextEventCard");
+
+    card.innerHTML = `
+      <img src="${evento.imagem}" alt="Imagem do evento">
+      <div class="eventDetails">
+        <p><strong>${evento.titulo}</strong></p>
+        <p>Data: ${evento.data} às ${evento.hora}</p>
+        <p>Local: ${evento.cidade}</p>
+        <p>Categoria: ${evento.categoria}</p>
+        <p>Preço: ${evento.preco ?? "Não informado"}</p>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+  container.style.display = "block"; // Exibe o container se houver eventos
+}
+
+// Filtrar eventos pela busca
+function filtrarEventos() {
+  const termo = inputBusca.value.toLowerCase();
+
+   if (termo === "") {
+    container.innerHTML = "";       // limpa resultados anteriores
+    container.style.display = "none"; // esconde o container
+    return;                         // cancela a busca
+  }
+
+  const filtrados = eventos.filter((ev) => {
+    const titulo = typeof ev.titulo === "string" ? ev.titulo.toLowerCase() : "";
+    const descricao =
+      typeof ev.descricao === "string" ? ev.descricao.toLowerCase() : "";
+    const cidade = typeof ev.cidade === "string" ? ev.cidade.toLowerCase() : "";
+    const categoria = Array.isArray(ev.categoria)
+      ? ev.categoria.map((c) => c.toLowerCase())
+      : typeof ev.categoria === "string"
+      ? [ev.categoria.toLowerCase()]
+      : [];
+
+    return (
+      titulo.includes(termo) ||
+      descricao.includes(termo) ||
+      cidade.includes(termo) ||
+      categoria.some(cat => cat.includes(termo))
+    );
+  });
+
+  exibirEventos(filtrados);
+}
+
+// Eventos de busca
+inputBusca.addEventListener("input", filtrarEventos);
+botaoBusca.addEventListener("click", filtrarEventos);
+
+// Iniciar
+carregarEventos().then(() => {
+  // Só ativa a busca depois que eventos foram carregados
+  inputBusca.addEventListener("input", filtrarEventos);
+  botaoBusca.addEventListener("click", filtrarEventos);
 });
