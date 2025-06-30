@@ -3,16 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/fireba
 import {
   getFirestore,
   collection,
-  addDoc
+  addDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-storage.js";
-
-
 
 // Configuração do Firebase
 const firebaseConfig = {
@@ -21,14 +13,12 @@ const firebaseConfig = {
   projectId: "o-que-fazer-em-rio-grand-4ca52",
   storageBucket: "o-que-fazer-em-rio-grand-4ca52.appspot.com",
   messagingSenderId: "1038923994330",
-  appId: "1:1038923994330:web:ca4cce7c73223896ddc1e3"
+  appId: "1:1038923994330:web:ca4cce7c73223896ddc1e3",
 };
 
 // Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const storage = getStorage(app);
-
 
 // Captura o formulário
 const form = document.getElementById("form-evento");
@@ -36,28 +26,14 @@ const form = document.getElementById("form-evento");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const arquivoImagem = form.imagem.files[0];
-  if (!arquivoImagem) {
-    alert("Por favor, selecione uma imagem.");
-    return;
-  }
-
   try {
-    // Sobe a imagem pro Storage
-    const nomeArquivo = `eventos/${Date.now()}_${arquivoImagem.name}`;
-    const imagemRef = ref(storage, nomeArquivo);
-    await uploadBytes(imagemRef, arquivoImagem);
-    const urlImagem = await getDownloadURL(imagemRef);
-
-    // Monta o evento
     const novoEvento = {
       titulo: form.titulo.value,
       descricao: form.descricao.value,
-      categoria: form.categoria.value.split(",").map(item => item.trim()),
+      categoria: form.categoria.value.split(",").map((item) => item.trim()),
       cidade: form.cidade.value,
       data: form.data.value,
       hora: form.hora.value,
-      imagem: urlImagem
     };
 
     await addDoc(collection(db, "eventos"), novoEvento);

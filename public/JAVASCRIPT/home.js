@@ -11,7 +11,7 @@ import {
   getDocs,
 } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
-// TUA CONFIG DO FIREBASE
+// CONFIG DO FIREBASE
 const firebaseConfig = {
   apiKey: "AIzaSyCmRdBJoQjNRcSQ6jBdpeLG07-Qr5O4N6Y",
   authDomain: "o-que-fazer-em-rio-grand-4ca52.firebaseapp.com",
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Logout
   document.getElementById("logout").addEventListener("click", () => {
     signOut(auth).then(() => {
-      window.location.href = "../index.html";
+      window.location.href = "/public/index.html";
     });
   });
 });
@@ -84,7 +84,6 @@ function exibirEventos(lista) {
     card.classList.add("nextEventCard");
 
     card.innerHTML = `
-      <img src="${evento.imagem}" alt="Imagem do evento">
       <div class="eventDetails">
         <p><strong>${evento.titulo}</strong></p>
         <p>Data: ${evento.data} às ${evento.hora}</p>
@@ -103,11 +102,12 @@ function exibirEventos(lista) {
 function filtrarEventos() {
   const termo = inputBusca.value.toLowerCase();
 
-   if (termo === "") {
-    container.innerHTML = "";       // limpa resultados anteriores
-    container.style.display = "none"; // esconde o container
-    return;                         // cancela a busca
-  }
+   if (termo.length < 3) {
+  container.innerHTML = "";
+  container.style.display = "none";
+  return;
+}
+
 
   const filtrados = eventos.filter((ev) => {
     const titulo = typeof ev.titulo === "string" ? ev.titulo.toLowerCase() : "";

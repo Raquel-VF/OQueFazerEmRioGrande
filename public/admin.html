@@ -10,24 +10,26 @@
 
 <!-- Links para o font poppins -->  
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../CSS/admin.css">
+
+  <link rel="stylesheet" href="CSS/admin.css">
 </head>
 <body>
   <div class="containerAdmin">
 
       <h1>Cadastrar Novo Evento</h1>
       <form id="form-evento">
-        <input type="text" id="titulo" placeholder="Título do evento" required>
-        <input type="text" id="descricao" placeholder="Descrição" required>
-        <input type="text" id="categoria" placeholder="Categoria (ex: show, teatro...)" required>
-        <input type="text" id="cidade" placeholder="Cidade/Bairro" required>
-        <input type="date" id="data" required>
-        <input type="time" id="hora" required>
-        <input type="file" id="imagem" accept="image/*" required>
+        <input type="text" id="titulo" name='titulo' placeholder="Título do evento" required>
+        <input type="text" id="descricao" name='descricao' placeholder="Descrição" required>
+        <input type="text" id="categoria" name='categoria' placeholder="Categoria (ex: show, teatro...)" required>
+        <input type="text" id="cidade" name='cidade' placeholder="Cidade/Bairro" required>
+        <input type="date" id="data" name='data' required>
+        <input type="time" id="hora" name='hora' required>
         <button type="submit">Salvar Evento</button>
       </form>
+
+      <div id="preview-container"></div>
   </div>
 
-  <script type="module" src="../JAVASCRIPT/admin.js"></script>
+  <script type="module" src="./JAVASCRIPT/admin.js"></script>
 </body>
 </html>
