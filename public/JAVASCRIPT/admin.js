@@ -34,6 +34,8 @@ form.addEventListener("submit", async (e) => {
       cidade: form.cidade.value,
       data: form.data.value,
       hora: form.hora.value,
+      preco: form.preco.value,
+      valor: form.valor ? form.valor.value : null,
     };
 
     await addDoc(collection(db, "eventos"), novoEvento);
