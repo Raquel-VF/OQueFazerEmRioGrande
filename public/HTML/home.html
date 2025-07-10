@@ -27,7 +27,7 @@
 
                 <img class="imgAvatar" id="avatar" src="../IMAGENS/fotoPerfil.png" alt="avatar perfil">
 
-                <div class="dropdown" id="menu-perfil">
+                <div class="dropdown-perfil" id="menu-perfil">
                     <a href="#">👤 Editar perfil</a>
                     <a href="#">📸 Alterar foto</a>
                     <a href="#">✉️ Alterar e-mail</a>
@@ -41,6 +41,7 @@
         </div>
     </div>
 
+    
         <main>
             <section class="searchBar">
                 <input type="text" id="inputBusca" placeholder="Buscar por evento, local ou bairro">
@@ -50,16 +51,57 @@
             </section>
         </main>
 
-
-
+        
         <div class="navegationBar">
             <ul>
-                <li><a href="#">Data <i class="fa-solid fa-check"></i> </a></li>
-                <li><a href="#">Preços <i class="fa-solid fa-check"></i> </a></li>
-                <li><a href="#">Local <i class="fa-solid fa-check"></i> </a></li>
-                <li><a href="categoria.html">Categoria <i class="fa-solid fa-check"></i> </a></li>
+                <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Data <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content" id="filtro-data">
+                    <!-- Exemplo de datas (podemos gerar via JS depois) -->
+                    <a href="#" data-data="2025-07-01">Hoje</a>
+                    <a href="#" data-data="2025-07-02">Amanhã</a>
+                    <a href="#" data-data="2025-07-03">Próximo dia</a>
+                    </div>
+                </div>
+                </li>
+                <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Preços <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content" id="filtro-preco">
+                    <a href="#" data-preco="0">Gratuito</a>
+                    <a href="#" data-preco="10">Até R$ 10</a>
+                    <a href="#" data-preco="20">Até R$ 20</a>
+                    <a href="#" data-preco="50">Até R$ 50</a>
+                    </div>
+                </div>
+                </li>
+                <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Local <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content" id="filtro-local">
+                    <a href="#" data-local="Centro">Centro</a>
+                    <a href="#" data-local="Cassino">Cassino</a>
+                    <a href="#" data-local="Cidade Nova">Cidade Nova</a>
+                    <!-- Podemos gerar mais bairros pelo Firestore -->
+                    </div>
+                </div>
+                </li>
+                <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Categoria <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content" id="filtro-categoria">
+                    <a href="#" data-categoria="Gastronomia">Gastronomia</a>
+                    <a href="#" data-categoria="Shows">Shows</a>
+                    <a href="#" data-categoria="Esportes">Esportes</a>
+                    <a href="#" data-categoria="Teatro">Teatro</a>
+                    </div>
+                </div>
+                </li>
             </ul>
         </div>
+
+
         <div class="category">
             <h3 class="categoryText">Categorias</h3>
             <div class="categoryItem">

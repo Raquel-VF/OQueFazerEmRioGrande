@@ -141,3 +141,7 @@ carregarEventos().then(() => {
   inputBusca.addEventListener("input", filtrarEventos);
   botaoBusca.addEventListener("click", filtrarEventos);
 });
+
+
+
+
