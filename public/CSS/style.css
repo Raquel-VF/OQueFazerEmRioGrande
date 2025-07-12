@@ -96,7 +96,7 @@ a button .entrar:hover{
 }
 
 .footer{
-    margin-top: 150px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     color: #9E9E9E;

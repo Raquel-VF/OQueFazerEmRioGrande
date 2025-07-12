@@ -5,8 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 /*container tela home*/
-.containerHome{
-    max-width: 411px; 
+.containerHome{ 
     width: 100%; 
     height: 100vh;
     background: #FFFFFF;
@@ -52,7 +51,6 @@
 }
 
 .containerHeader .headerLogo {
-    width: 411px;
     height: 48px;
     display: flex;
     align-items: center;
@@ -70,12 +68,15 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* inicio do dropdaw perfil*/
 .perfil-container {
   position: relative;
   display: inline-block;
+  padding-left: 50px;
+
 }
 
 .dropdown-perfil {
@@ -184,12 +185,12 @@
 }
 
 .navegationBar ul li a{
-    width: 96px;
-    height: 40px;
+    width: 120px;
+    height: 50px;
     gap: 10px;
     background: #FFFFFF;
     border: 1px solid #E0E0E0;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,6 +205,16 @@
 .dropdown {
   position: relative;
   display: inline-block;
+}
+.dropdown button{
+    width: 95px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    color: #9E9E9E;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .dropdown-content a {
@@ -423,3 +434,57 @@
 }
 
 /*Fim Botão de navegação fixo*/
+
+/* Esconde a versão desktop por padrão */
+.search-desktop {
+  display: none;
+}
+
+/* Mostra a versão mobile por padrão */
+.search-mobile {
+  display: flex;
+}
+
+/* Quando for tela grande (notebook) */
+@media screen and (min-width: 768px) {
+  .containerHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .headerLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search-desktop {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .search-desktop input {
+    width: 100%;
+    max-width: 400px;
+    height: 36px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .search-desktop button {
+    height: 36px;
+    width: 40px;
+    background-color: #53A5CF;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-mobile {
+    display: none;
+  }
+}
+

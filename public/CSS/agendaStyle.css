@@ -94,7 +94,7 @@
     margin: 10px;
 }
 
-.cartaoMomento {
+.containerAgenda .cartaoMomento {
   display: flex;
   flex-direction: row;
   align-items: flex-start;

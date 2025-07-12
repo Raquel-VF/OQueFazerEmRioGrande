@@ -72,44 +72,9 @@
 }
 /*fim header home*/
 
-/*Inicio navegationBar*/
-.navegationBar{
-    width: 411px;
-    display: flex;
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-.navegationBar ul{
-    display: flex;
-    gap: 6px;
-    list-style: none;
-}
-
-.navegationBar ul li a{
-    width: 96px;
-    height: 40px;
-    gap: 10px;
-    background: #FFFFFF;
-    border: 1px solid #E0E0E0;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #9E9E9E;
-    text-decoration: none;
-    font-size: 14px;
-}
-.navegationBar ul li a:hover{
-    background: #53A5CF;
-    color: #ffffff;
-}
-/*Fim navegationBar*/
 
 /*Inicio próximos eventos*/
 .nextEvents{
-    width: 411px;
     height: 600px;
     background: #FFFFFF;
     border: 1px solid #E0E0E0;
