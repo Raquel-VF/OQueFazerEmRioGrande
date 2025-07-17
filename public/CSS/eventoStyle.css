@@ -4,15 +4,20 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
 
 /*container tela evento*/
 .containerEvento{ 
-    background: #FFFFFF;
+    height:100vh;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 20px;
 }
 .containerEvento a{
     text-decoration: none;
@@ -36,32 +41,34 @@
     font-size: 24px;
 }
 .containerEvento img{
-    height: 500px;
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
     border-radius: 0 0 38px 38px;
     margin-top: -88px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .infoEvento{
-    width: 363px;
-    height: 300px;
+    width: 100%;
+    overflow: auto;
     border-radius: 20px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    justify-content: space-evenly;
+    padding: 10px;
+    gap: 5px;
 }
 .infoEvento h1{
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 600;
     color: #9E9E9E;
 }
 .infoEvento .mapa {
-    width: 150px;
-    height:100px;
+    
     border-radius: 10px;
     overflow: auto;
-    margin-bottom: 10px;
 }
 .infoEvento .detalhesEvento{
     width: 170px;
@@ -94,11 +101,11 @@
     
 }
 .botaoEvento{
-    width: 363px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 .botaoEvento .btnAgendar{
     width: 150px;

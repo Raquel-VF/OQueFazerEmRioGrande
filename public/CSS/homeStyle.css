@@ -134,7 +134,7 @@
 .searchBar input::placeholder{
     color: #9E9E9E;
 }
-#botaoBusca{
+#botaoBusca, #botaoBuscaMobile{
     width: 50px;
     height: 35px;
     background: #53A5CF;
@@ -482,7 +482,6 @@
     border: none;
     cursor: pointer;
   }
-
   .search-mobile {
     display: none;
   }
