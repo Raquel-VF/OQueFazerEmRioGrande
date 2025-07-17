@@ -22,7 +22,7 @@ document.querySelector('.google').addEventListener('click', async () => {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
     alert(`Bem-vinda, ${user.displayName}`);
-    window.location.href = '/HTML/home.html';
+    window.location.href = 'HTML/home.html';
   } catch (error) {
     console.error(error);
     alert('Erro no login com Google');

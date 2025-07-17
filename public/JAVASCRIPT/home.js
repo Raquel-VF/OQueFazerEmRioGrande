@@ -25,6 +25,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+
 // FUNÇÃO PARA CARREGAR O MENU DE PERFIL
 document.addEventListener("DOMContentLoaded", () => {
   const auth = getAuth();
@@ -52,12 +53,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Função que determina qual campo de busca está visível
+document.addEventListener('DOMContentLoaded', function () {
+    const inputDesktop = document.querySelector('.search-desktop input');
+    const inputMobile = document.querySelector('.search-mobile input');
+    const botaoDesktop = document.querySelector('.search-desktop button');
+    const botaoMobile = document.querySelector('.search-mobile button');
+
+    // Função para buscar com base no input visível
+    function realizarBusca() {
+        let textoBusca;
+
+        if (window.getComputedStyle(inputDesktop).display !== 'none') {
+            textoBusca = inputDesktop.value.trim();
+        } else {
+            textoBusca = inputMobile.value.trim();
+        }
+
+        console.log('Texto buscado:', textoBusca);
+
+        // Aqui você chama sua função de busca com "textoBusca"
+        buscarEventos(textoBusca);
+    }
+
+    botaoDesktop.addEventListener('click', realizarBusca);
+    botaoMobile.addEventListener('click', realizarBusca);
+});
+
+
+
 // IMPORTA OS MÓDULOS DA BARRA DE PESQUISA COM FIRESTORE
 const container = document.getElementById("resultadosBusca");
 container.style.display = "none";
 
-const inputBusca = document.getElementById("inputBusca");
-const botaoBusca = document.getElementById("botaoBusca");
+const inputBuscaDesktop = document.getElementById("inputBuscaDesktop");
+const inputBuscaMobile = document.getElementById("inputBuscaMobile");
+const botaoBuscaDesktop = document.getElementById("botaoBuscaDesktop");
+const botaoBuscaMobile = document.getElementById("botaoBuscaMobile"); // define o botão de busca mobile
+
 
 let eventos = [];
 
@@ -99,15 +132,12 @@ function exibirEventos(lista) {
 }
 
 // Filtrar eventos pela busca
-function filtrarEventos() {
-  const termo = inputBusca.value.toLowerCase();
-
-   if (termo.length < 3) {
-  container.innerHTML = "";
-  container.style.display = "none";
-  return;
-}
-
+function filtrarEventos(termo) {
+  if (termo.length < 3) {
+    container.innerHTML = "";
+    container.style.display = "none";
+    return;
+  }
 
   const filtrados = eventos.filter((ev) => {
     const titulo = typeof ev.titulo === "string" ? ev.titulo.toLowerCase() : "";
@@ -124,16 +154,25 @@ function filtrarEventos() {
       titulo.includes(termo) ||
       descricao.includes(termo) ||
       cidade.includes(termo) ||
-      categoria.some(cat => cat.includes(termo))
+      categoria.some((cat) => cat.includes(termo))
     );
   });
 
   exibirEventos(filtrados);
 }
 
+
 // Eventos de busca
-inputBusca.addEventListener("input", filtrarEventos);
-botaoBusca.addEventListener("click", filtrarEventos);
+botaoBuscaDesktop.addEventListener("click", () => {
+  const termo = inputBuscaDesktop.value.toLowerCase();
+  filtrarEventos(termo);
+});
+
+botaoBuscaMobile.addEventListener("click", () => {
+  const termo = inputBuscaMobile.value.toLowerCase();
+  filtrarEventos(termo);
+});
+
 
 // Iniciar
 carregarEventos().then(() => {
