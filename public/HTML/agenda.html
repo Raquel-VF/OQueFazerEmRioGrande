@@ -3,80 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O que fazer em Rio Grande - Agenda</title>
+    <title>Agenda de eventos</title>
     <link rel="shortcut icon" href="/public/IMAGENS/icones/faviconBlueWhite.png" type="image/x-icon">
 
     <!-- Links para o Google Fonts e Font Awesome -->     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/agendaStyle.css">
-    <link rel="stylesheet" href="CSS/responsivo.css">
-
+    <link rel="stylesheet" href="../CSS/responsivo.css">
 
     <!-- Links para o font poppins -->  
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Incio do cabeçalho-->
+    <!-- Header -->
     <div class="containerHeader">
-        <a href="home.html" class="arrowLeft">
+         <a href="../index.html" class="arrowLeft">
             <i class="fa-solid fa-arrow-left"></i>
-        </a>
+         </a>
         <div class="headerLogo">
             <img class="imgLogo" src="../IMAGENS/logo.png" alt="logo">
-            <img class="imgAvatar" src="../IMAGENS/fotoPerfil.png" alt="avatar perfil">
+            
+            <section class="searchBar search-desktop">
+                <input type="text" id="inputBuscaDesktop" placeholder="Buscar por evento, local ou bairro" />
+                <button id="botaoBuscaDesktop"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </section>
+            
+            <div class="perfil-container">
+                <img class="imgAvatar" id="avatar" src="../IMAGENS/fotoPerfil.png" alt="avatar perfil">
+                             
+                <div class="dropdown-perfil" id="menu-perfil">
+                    <a href="#">👤 Editar perfil</a>
+                    <a href="#">📸 Alterar foto</a>
+                    <a href="#">✉️ Alterar e-mail</a>
+                    <a href="#">🔐 Alterar senha</a>
+                    <a href="#">❓ Suporte</a>
+                    <a href="/public/admin.html" id="btn-admin" style="display: none;">🛠️ Área Admin</a>
+                    <a href="#" id="logout">🚪 Sair</a>
+                </div>
+            </div>
         </div>
-    </div><!-- Incio do cabeçalho-->
+    </div> <!--fim header-->
 
-    <!-- Inicio do container da Agenda -->
+    <!--Container calendario-->
     <div class="containerAgenda">
-        <h4>Meus momentos</h4>
-
-        <div class="cartaoMomento">
-            <div class="marcaDagua">
-                <img src="../IMAGENS/mapa_cidade_rio_grande.jpg" alt="mapa da mapa_cidade_rio_grande">
+        <div class="calendario">
+            <div class="topoCalendario">
+                <a href="#" class="arrowLeft">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <h3>Maio 2025</h3>
+                <a href="#" class="arrowRight">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="caixaFotoTop">
-                <img src="#" alt=" foto de meus momentos">
-                <div class="iconesAgenda">
-                <i class="fa-solid fa-location-dot"></i>
-                <i class="fa-solid fa-heart"></i>
-                <i class="fa-solid fa-user-group"></i>
-                </div>
+            <div class="diasSemana">
+                <span>Dom</span>
+                <span>Seg</span>
+                <span>Ter</span>
+                <span>Qua</span>
+                <span>Qui</span>
+                <span>Sex</span>
+                <span>Sab</span>
             </div>
-
-            <div class="postItTop">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam eveniet hic in atque magnam. </p>
-            </div>
-
-              <div class="caixaFotoLeft">
-                <img src="#" alt=" foto de meus momentos">
-                <div class="iconesAgenda">
-                <i class="fa-solid fa-heart"></i>
-                </div>
-            </div>
-
-            <div class="caixaFotoRight">
-                <img src="#" alt=" foto de meus momentos">
-                <div class="iconesAgenda">
-                <i class="fa-solid fa-location-dot"></i>
-                </div>
-            </div>
-
-            <div class="postItMiddle">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam eveniet hic in atque magnam. </p>
-            </div>
-
-            <div class="caixaFotoBottom">
-                <img src="#" alt=" foto de meus momentos">
-                <div class="iconesAgenda">
-                </div>
-            </div>
-
-            <div class="postItBottom" aria-placeholder="Escreva aqui o que você achou do local">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>   
-            </div>
-
+            <div class="diasMes">
+                <span class="dia">31</span>
+            </div>    
         </div>
-    </div> <!-- Fim do container da Agenda -->
+
+        <!--Container eventos agendados-->
+        <div class="eventosAgendados">
+            <h4>Eventos Agendados</h4>
+            <div id="btnInfo">
+
+            </div>
+
+            <div class="containerEventosAgendados">
+                <img src="" alt="">
+                <h2>Festimar</h2>
+                <p>Eventos Agendados</p>
+                <div id="btncheck">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div id="btntrash">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--BARRA DE NAGEGAÇÃO DE BAIXO-->
+    <div class="bottonNav">
+        <a href="home.html" class="bottonNavInicio">
+            <i class="fa-solid fa-house"></i>
+            <span>Início</span>
+        </a>
+        <a href="agenda.html" class="bottonNavBusca">
+            <i class="fa-solid fa-calendar"></i>
+            <span>Agenda</span>
+        </a>
+        <a href="diario.html" class="bottonNavAgenda">
+            <i class="fa-solid fa-book"></i>
+            <span>Diário</span>
+        </a>
+    </div>
+    <script type="module" src="../JAVASCRIPT/agenda.js"></script>
 </body>
 </html>
