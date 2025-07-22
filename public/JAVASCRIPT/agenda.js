@@ -45,3 +45,22 @@ document.addEventListener("DOMContentLoaded", function(){
         diaMes.innerHTML += `<span class="dia dia-proximo">${i}</span>`;
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dias = document.querySelectorAll(".dia");
+    const hoje = new Date();
+    const diaAtual = hoje.getDate();
+
+    dias.forEach(dia => {
+        //coloca bolinha azul no dia atual
+        if (parseInt(dia.textContent) === diaAtual) {
+            dia.classList.add("selecionado");
+        }
+    
+        // Adiciona comportamento ao clicar
+        dia.addEventListener("click", () => {
+            dias.forEach(d => d.classList.remove("selecionado"));
+            dia.classList.add("selecionado");
+        });
+    });
+});
