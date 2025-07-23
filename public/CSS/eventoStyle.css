@@ -6,12 +6,10 @@
 }
 html, body{
     height: 100%;
-    overflow: hidden;
 }
 
 /*container tela evento*/
 .containerEvento{ 
-    height:100vh;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -51,7 +49,6 @@ html, body{
 
 .infoEvento{
     width: 100%;
-    overflow: auto;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
