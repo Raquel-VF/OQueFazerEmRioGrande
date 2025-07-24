@@ -1,3 +1,36 @@
+// Importa os módulos do Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+import {
+ getFirestore,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where
+} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+
+// Configuração do Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCmRdBJoQjNRcSQ6jBdpeLG07-Qr5O4N6Y",
+  authDomain: "o-que-fazer-em-rio-grand-4ca52.firebaseapp.com",
+  projectId: "o-que-fazer-em-rio-grand-4ca52",
+  storageBucket: "o-que-fazer-em-rio-grand-4ca52.appspot.com",
+  messagingSenderId: "1038923994330",
+  appId: "1:1038923994330:web:ca4cce7c73223896ddc1e3",
+};
+
+// Inicializa o Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
+
+
+
+
+// Captura o formulário
 document.addEventListener("DOMContentLoaded", function(){
     const diaMes = document.querySelector(".diasMes");
     const tituloMes = document.querySelector(".topoCalendario h3");
@@ -80,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             btnTrash.style.display = "flex";
         }
+        
 
         // Clique no CHECK para agendar
         btnCheck.addEventListener("click",() => {
@@ -88,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnTrash.style.display = "flex";
         
         //Aqui adicionaria a lógica para salvar o evento agendado
-        Console.log("Evento agendado:");
+        console.log("Evento agendado:");
         });
 
         // Clique no TRASH para excluir
@@ -98,7 +132,36 @@ document.addEventListener("DOMContentLoaded", () => {
             btnCheck.style.display = "flex";
             
             //Aqui adicionaria a lógica para excluir o evento agendado
-            Console.log("Evento excluído:");
+            console.log("Evento excluído:");
         });
     });
 });
+
+async function salvarEventoNoFirebase(titulo, data, hora) {
+  try {
+    await addDoc(collection(db, "eventosAgendados"), {
+      titulo,
+      data,
+      hora
+    });
+    console.log("Evento salvo com sucesso!");
+  } catch (error) {
+    console.error("Erro ao salvar no Firebase:", error);
+  }
+}
+
+async function deletarEventoDoFirebase(titulo) {
+  try {
+    const eventosRef = collection(db, "eventosAgendados");
+    const q = query(eventosRef, where("titulo", "==", titulo));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(async (docSnap) => {
+      await deleteDoc(doc(db, "eventosAgendados", docSnap.id));
+      console.log("Evento deletado:", docSnap.id);
+    });
+  } catch (error) {
+    console.error("Erro ao deletar do Firebase:", error);
+  }
+}
+
