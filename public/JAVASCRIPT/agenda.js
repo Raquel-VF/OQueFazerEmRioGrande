@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //Preenche com dias do proximo mes ate completar a grade ( 42 = 6 semanas * 7 dias )
     const totalDias = primeiroDia + diaNomes;
-    const diasFaltantes = 42 - totalDias;
+    const diasFaltantes = 35 - totalDias;
 
     for (let i = 1; i <= diasFaltantes; i++) {
         diaMes.innerHTML += `<span class="dia dia-proximo">${i}</span>`;
@@ -61,6 +61,44 @@ document.addEventListener("DOMContentLoaded", () => {
         dia.addEventListener("click", () => {
             dias.forEach(d => d.classList.remove("selecionado"));
             dia.classList.add("selecionado");
+        });
+    });
+});
+
+
+//Mostrar o botão check ou trash evento salvar ou excluir
+document.addEventListener("DOMContentLoaded", () => {
+    const eventos = document.querySelectorAll(".containerEventosAgendados");
+
+    eventos.forEach(evento => {
+        const btnCheck = evento.querySelector(".btncheck");
+        const btnTrash = evento.querySelector(".btntrash");
+
+        const agendado = evento.getAttribute("data-agendado") === "true";
+        if  (agendado) {
+            btnCheck.style.display = "flex";
+        } else {
+            btnTrash.style.display = "flex";
+        }
+
+        // Clique no CHECK para agendar
+        btnCheck.addEventListener("click",() => {
+            evento.setAttribute("data-agendado", "true");
+            btnCheck.style.display = "none";
+            btnTrash.style.display = "flex";
+        
+        //Aqui adicionaria a lógica para salvar o evento agendado
+        Console.log("Evento agendado:");
+        });
+
+        // Clique no TRASH para excluir
+        btnTrash.addEventListener("click", () => {
+            evento.setAttribute("data-agendado", "false");
+            btnTrash.style.display = "none";
+            btnCheck.style.display = "flex";
+            
+            //Aqui adicionaria a lógica para excluir o evento agendado
+            Console.log("Evento excluído:");
         });
     });
 });
