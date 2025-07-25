@@ -23,6 +23,10 @@
     padding-top: 10px;
   }
 
+  input, button, select, textarea {
+  font-size: 16px !important;
+}
+
   form, #form-evento {
     max-width: 600px;
     width: 100%;
