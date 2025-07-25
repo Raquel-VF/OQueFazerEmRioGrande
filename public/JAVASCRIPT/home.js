@@ -173,6 +173,9 @@ botaoBuscaMobile.addEventListener("click", () => {
   filtrarEventos(termo);
 });
 
+const inputBusca = document.querySelector('#inputBusca');
+const botaoBusca = document.querySelector('#botaoBusca');
+
 
 // Iniciar
 carregarEventos().then(() => {
