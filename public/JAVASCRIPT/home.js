@@ -1,15 +1,12 @@
+
 // IMPORTA OS MÓDULOS DO FIREBASE (não pode faltar isso!)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import {
   getAuth,
+  getRedirectResult,
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 
 // CONFIG DO FIREBASE
 const firebaseConfig = {
@@ -22,8 +19,20 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 const auth = getAuth(app);
+
+// Aqui que recupera o login (especialmente no celular!)
+getRedirectResult(auth)
+  .then((result) => {
+    if (result && result.user) {
+      const user = result.user;
+      alert(`Bem-vinda, ${user.displayName || user.email}`);
+    }
+  })
+  .catch((error) => {
+    console.error("Erro ao obter resultado do login:", error);
+  });
+
 
 
 // FUNÇÃO PARA CARREGAR O MENU DE PERFIL

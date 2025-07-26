@@ -22,17 +22,20 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Captura o redirecionamento (depois do login com Google/Facebook)
-getRedirectResult(auth)
-  .then((result) => {
-    if (result && result.user) {
-      const user = result.user;
-      alert(`Bem-vinda, ${user.displayName}`);
-      window.location.href = "HTML/home.html"; // ou 'agenda.html', onde quiser levar
-    }
-  })
-  .catch((error) => {
-    console.error("Erro no redirecionamento:", error);
-  });
+window.addEventListener('DOMContentLoaded', () => {
+  getRedirectResult(auth)
+    .then((result) => {
+      if (result && result.user) {
+        const user = result.user;
+        alert(`Bem-vinda, ${user.displayName}`);
+        window.location.href = "HTML/home.html"; // ajusta se necessário
+      }
+    })
+    .catch((error) => {
+      console.error("Erro no redirecionamento:", error);
+    });
+});
+
 
 // Login com Google
 document.querySelector('.google').addEventListener('click', () => {
